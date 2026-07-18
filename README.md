@@ -1,8 +1,8 @@
 # Trading Behavior Analysis — Market Sentiment vs Trader Performance
 
-Analysis of ~211k crypto trades against the Crypto Fear & Greed Index, testing
-whether trader behavior and profitability shift with market sentiment, then
-using clustering and a classifier to profile traders and predict trade outcomes.
+Data analysis of ~211k crypto trades against the Crypto Fear & Greed Index,
+testing — with a full statistical framework, not just a chart — whether
+trader behavior and profitability shift with market sentiment.
 
 ## Data
 
@@ -21,7 +21,7 @@ Run in this order (same kernel session, or restart-and-run-all on each):
    side split, top assets, hourly activity, correlation heatmap).
 
 2. **`quantitative behavioral analysis.ipynb`** — merges trades with daily
-   sentiment, then runs the statistical testing and modeling:
+   sentiment, then runs the full statistical testing framework:
 
    - Sentiment regime distribution and PnL/volume breakdown by regime
    - **One-way ANOVA** — mean `closed_pnl` across Fear / Greed / Extreme Greed / Neutral
@@ -40,10 +40,6 @@ Run in this order (same kernel session, or restart-and-run-all on each):
    - **A/A test** — sanity check: splits one regime (Neutral) into two random
      halves and re-runs the t-test; used to confirm the testing pipeline
      doesn't throw false positives on its own
-   - **K-Means clustering** (elbow method, 5 clusters) + PCA projection to
-     profile trader types
-   - **Random Forest classifier** predicting whether a trade closes profitable,
-     with accuracy/precision/recall/F1, confusion matrix, and feature importance
 
 ## Key statistical findings
 
@@ -76,5 +72,4 @@ matplotlib
 seaborn
 scipy
 statsmodels
-scikit-learn
 ```
